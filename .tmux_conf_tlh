@@ -1,0 +1,9 @@
+# use vim bindings to switch panes
+# vim-like pane switching
+bind k select-pane -U
+bind j select-pane -D
+bind h select-pane -L
+bind l select-pane -R
+
+# use xterm 
+set -g default-terminal "xterm"
