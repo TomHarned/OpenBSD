@@ -1,6 +1,6 @@
-# use vim if it's installed, vi otherwise
+# use nvim if it's installed, vi otherwise
 case "$(command -v vim)" in
-  */vim) VIM=vim ;;
+  */vim) VIM=nvim ;;
   *)     VIM=vi  ;;
 esac
 
@@ -33,15 +33,23 @@ alias df='df -h'
 alias du='du -ch'
 alias weather='curl http://wttr.in/New_York'
 command -v neomutt > /dev/null && alias mutt='neomutt'
-alias svim="doas vim"
+alias vim=nvim
+alias svim="doas nvim"
 alias svi="doas vi"
+alias python=python3
+alias vs=/usr/local/bin/vis
 
-# nice colored prompt that also sets xterm title
-_XTERM_TITLE='\[\033]0;\u@\h:\w\007\]'
-_PS1_CLEAR='\[\033[0m\]'
-_PS1_BLUE='\[\033[34m\]'
+PATH=$HOME/bin:$HOME/.emacs.d:$HOME/.local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/games
+export PATH HOME TERM
+export PKG_PATH=ftp://ftp4.usa.openbsd.org/pub/OpenBSD/6.8/packages/amd64/
+
+#  nice colored prompt that also sets xterm title
+ _XTERM_TITLE='\[\033]0;\u@\h:\w\007\]'
+ _PS1_CLEAR='\[\033[0m\]'
+ _PS1_BLUE='\[\033[34m\]'
 case "$(id -u)" in
-  0) _PS1_COLOR='\[\033[1;31m\]' ;;
-  *) _PS1_COLOR='\[\033[32m\]'   ;;
+   0) _PS1_COLOR='\[\033[1;31m\]' ;;
+   *) _PS1_COLOR='\[\033[32m\]'   ;;
 esac
-PS1='$_XTERM_TITLE\A $_PS1_COLOR\u@\h$_PS1_CLEAR:$_PS1_BLUE\w$_PS1_COLOR\$$_PS1_CLEAR '
+# PS1='$_XTERM_TITLE\A $_PS1_COLOR\u@\h$_PS1_CLEAR:$_PS1_BLUE\w$_PS1_COLOR\$$_PS1_CLEAR '
+PS1='$_PS1_BLUE\w$_PS1_COLOR\$$_PS1_CLEAR '

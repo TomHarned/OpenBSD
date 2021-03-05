@@ -18,31 +18,31 @@ XIdle*timeout  : 300
 
 ! ===== xlock
 ! actually turn the backlight off
-XLock.dpmsoff     : 1
-! plain white-on-black lock screen
-XLock.description : off
-XLock.echokeys    : off
-XLock.info        :
-XLock.background  : black
-XLock.foreground  : white
-XLock.mode        : blank
-XLock.username    : username: 
-XLock.password    : password: 
-XLock.font        : -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-1
-XLock.planfont    : -misc-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1
-
-! ===== xclock
-! digital clock in lower right-hand corner
-XClock*analog      : false
-XClock*twentyfour  : true
-XClock*padding     : 0
-XClock*geometry    : -2-2
-XClock*render      : false
-XClock*font        : -misc-fixed-bold-r-normal-*-13-*-*-*-*-*-iso10646-1
-XClock*height      : 12
-XClock*background  : dimgray
-XClock*foreground  : white
-XClock*borderWidth : 0
+!XLock.dpmsoff     : 1
+!! plain white-on-black lock screen
+!XLock.description : off
+!XLock.echokeys    : off
+!XLock.info        :
+!XLock.background  : black
+!XLock.foreground  : white
+!XLock.mode        : blank
+!XLock.username    : username: 
+!XLock.password    : password: 
+!XLock.font        : -misc-fixed-medium-r-normal-*-15-*-*-*-*-*-iso10646-1
+!XLock.planfont    : -misc-fixed-medium-r-normal-*-13-*-*-*-*-*-iso10646-1
+!
+!! ===== xclock
+!! digital clock in lower right-hand corner
+!XClock*analog      : false
+!XClock*twentyfour  : true
+!XClock*padding     : 0
+!XClock*geometry    : -2-2
+!XClock*render      : false
+!XClock*font        : -misc-fixed-bold-r-normal-*-13-*-*-*-*-*-iso10646-1
+!XClock*height      : 12
+!XClock*background  : dimgray
+!XClock*foreground  : white
+!XClock*borderWidth : 0
 
 ! ===== xterm
 ! zenburn theme - http://kippura.org/zenburnpage
