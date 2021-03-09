@@ -24,12 +24,11 @@
 - neovim, aliased to vim
 - neatvi, aliased to vi
 - vis aliased to vs (too many text editors!)
-- emacs
 - xclip
-- doom emacs
 - tor (compiled from source, need to do this as su, not using doas)
 - htop
 - qutebrowser
+- irssi (irc)
 - suckless tools (see below)
 
 ### Suckless tools - put some of your settings into the openBSD git

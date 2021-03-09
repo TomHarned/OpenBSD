@@ -1,7 +1,8 @@
 " Settings
-set backspace=indent,eol,start
+set backspace=indent,eol,start 
 " more powerful backspacing
 set number
+set lisp
 set tabstop=4
 filetype plugin indent on
 set autoindent
@@ -36,15 +37,18 @@ endif
 let g:ale_disable_lsp = 1
 " let g:ale_completion_enabled = 1
 
+
 " Plugins
 call plug#begin()
 
+" Python
+Plug 'fs111/pydoc.vim'
 " git plugins
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " show file tree
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/tagbar'
 
@@ -59,7 +63,6 @@ Plug 'tomasr/molokai'
 Plug 'sainnhe/sonokai'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
-Plug 'romgrk/doom-one.vim'
 
 " Nice airline format at bottom of screen
 Plug 'vim-airline/vim-airline'
@@ -80,16 +83,32 @@ Plug 'Olical/conjure', {'tag': 'v4.3.1'}
 Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 
+" Racket
+Plug 'wlangstroth/vim-racket'
 " Only in Neovim:
-Plug 'radenling/vim-dispatch-neovim'
+
+Plug 'guns/vim-sexp'
+" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-surround'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'Olical/conjure'
+Plug 'venantius/vim-cljfmt'
 Plug 'tpope/vim-salve'
+Plug 'tpope/vim-fireplace'
 
 " Automatch paired symbols like parens, quotes, etc.
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
+
+" Code completion
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc-tsserver'
+" Plug 'weirongxu/coc-explorer'
 
 Plug 'dense-analysis/ale'
 
@@ -99,6 +118,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
+
 call plug#end()
 
 " configure fzf
@@ -118,9 +138,9 @@ nnoremap <silent> <Space>b :Buffers<cr>
 let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 
-let g:coc_user_config = {}
-let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
-set completeopt+=preview
+" let g:coc_user_config = {}
+" let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
+" set completeopt+=preview
 let g:float_preview#docked = 1
 let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
@@ -135,7 +155,7 @@ let g:tagbar_ctags_bin="/usr/bin/ctags"
 " let g:coc_node_path="~/bin/node-v14.15.1-linux-x64/bin/node"
 
 
-let g:ale_linters = {'python': ['autopep8'],'clojure': ['cli-kondo', 'joker'],'markdown': ['markdownlint']}
+" let g:ale_linters = {'python': ['autopep8'],'clojure': ['cli-kondo', 'joker'],'markdown': ['markdownlint']}
 " Configure shortcut for nerdtree toggle
 " nnoremap <Space>n :NERDTreeToggle<CR>
 
@@ -144,6 +164,8 @@ nnoremap <Space>t :TagbarToggle<CR>
 
 " Remap ctrl-w to space for split nav
 nnoremap <Space> <C-w>
+
+" Remap vim slime
 
 nnoremap <Space><Tab> :bp<CR>
 
@@ -170,10 +192,10 @@ set noswapfile
 " let g:coc_user_config = {}
 " let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 syntax on
-colorscheme onedark
+colorscheme onedark 
 let g:airline_theme='onedark'
 
-" set background=dark
+" set background=dark 
 " autocmd VimEnter * colorscheme doom-one
 " autocmd VimEnter * AirlineTheme gruvbox
 
@@ -189,4 +211,9 @@ let g:airline#extensions#hunks#enabled=1
 
 let g:airline_exclude_filetypes = ['nerdtree']
 
-"set maplocalleader=","
+let mapleader=","
+
+" Set to use python manual for python documentation
+autocmd BufNewFile,BufRead *.py set keywordprg=pydoc3
+ let g:pydoc_cmd = 'pydoc3'
+"use omni completion provided by lsp
