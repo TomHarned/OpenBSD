@@ -39,6 +39,7 @@
 ### Suckless tools - put some of your settings into the openBSD git
 
 - Suckless: when installing these, make adjusments based on this guy's website: paedubucher.ch
+- st, with nordtheme patch
 - dwm (window manager)
 - demu (menu bar)
 - surf (webbrowser) used pkg_add to get the bundled webkit
