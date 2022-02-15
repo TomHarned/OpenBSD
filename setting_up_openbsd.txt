@@ -1,0 +1,45 @@
+# TODO: organize this and merge it with your dotfiles and your existing openbsd
+  repo
+
+# Install with encrypted hard drive
+- see Roman's site for info on this
+- if you're getting and error message when trying to overwrite the drive, try:
+
+(verify this command)
+cd /dev && sh MAKEDEV sd0
+
+doas pkg_add    xclip
+#Install chicken scheme
+        doas        pkg_add chicken
+
+#add the following to .emacs
+                (setq scheme - program - name "chicken-csi -:c")
+#Set apmd to run after boot
+    $       cat /   etc / rc.conf.local
+            sshd_flags = NO
+    dbus_enable = YES
+    apmd_flags = "-A -z 15"
+    xenodm_flags = "YES"
+    how to log out of openBSD with cwm:CTRL + ALT + SHIFT Q
+    How to get battery health:sysctl hw.sensors
+
+#get rid of bell and annoyin console thing
+    sed - i 's/xconsole/#xconsole/' / etc / X11 / xenodm / Xsetup_0
+    echo 'xset b off' >> /etc / X11 / xenodm / Xsetup_0
+    doas pkg_add tor - browser
+
+
+#install i3
+    - doas pkg_add i3
+    copy over config(config_i3) from dotfiles into ~ /.config / i3 /
+-doas pkg_add i3status
+put.i3status.conf from dotfiles into ~ /
+-doas pkg_add
+feh(for bg image)
+    add to.xsession(before starting i3)
+    feh-- bg - fill ~ /pictures / puffy.png
+    update i3 config
+
+#What .xsession does
+    Loads X things when you login in through graphical manager
+    When you don 't log in through graphical, .xinitrc handles this stuff
