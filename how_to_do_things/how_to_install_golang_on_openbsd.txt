@@ -1,0 +1,32 @@
+
+The openBSD package install on it's own isn't very good.
+
+...but you can use it to bootstrap the compiler and install go from source.
+
+doas pkg_add go
+
+# download the source
+
+gunzip source_code.tar.gz
+
+tar xf source_code.tar
+
+# Move the go/ directory to $HOME/.local 
+mv ~/go ~/.local/
+cd go
+
+# Follow the build from source instructions
+
+# Set GOPATH and GOROOT
+export GOPATH=$HOME/go
+export GOROOT=$HOME/.local/go
+
+# Make sure the go compiler is in your path
+export PATH=$PATH:/home/theuser/.local/go/bin
+
+# Install gopls for lsp goodies
+go get golang.org/x/tools/gopls
+go install golang.org/x/tools/gopls@latest.
+
+
+

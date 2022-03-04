@@ -43,3 +43,5 @@ feh(for bg image)
 #What .xsession does
     Loads X things when you login in through graphical manager
     When you don 't log in through graphical, .xinitrc handles this stuff
+doas pkg_add mu
+doas pkg_add isync
