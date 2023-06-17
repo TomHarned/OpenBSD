@@ -1,0 +1,14 @@
+
+On your client machine:
+
+Add "ForwardX11 yes" to $HOME/.ssh/config
+
+On the Server machine
+
+Add 
+
+X11Forwarding yes
+#X11DisplayOffset 10
+X11UseLocalhost no
+
+Note that the settings prefixed with "#" are defaults. To change the default uncomment the line and make your changes.
